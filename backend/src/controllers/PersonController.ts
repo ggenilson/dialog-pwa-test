@@ -1,23 +1,29 @@
-// import { getRepository } from 'typeorm';
-import { Request, Response } from 'express';
-//import User from '../database/entities/User';
+import data from '../database/db.json';
 
-class UserController {
-  async index(req: Request, res: Response) {
-    //return res.json(await User.find());
+import { IPerson } from '../database/entities/Person';
 
-    fetch(
-      'https://api.stackexchange.com/2.2/questions/featured?order=desc&sort=activity&site=stackoverflow'
-    )
-      .then(resp => resp.json())
-      .then(json => console.log(json))
-      .catch(err => console.log(err));
+class PersonController {
+  index() {
+    const res: IPerson[] = data.map(value => ({
+      ...value,
+    }));
+
+    return res;
   }
 
-  async show(req: Request, res: Response) {
-    return;
-    return res.json(await User.findOne(req.params.id));
+  show(name: string) {
+    const res: any = data
+      .map(value => {
+        if (value.name.toLowerCase().indexOf(name.toLowerCase()) > -1) {
+          return value;
+        }
+      })
+      .filter(val => val !== undefined);
+
+    console.log(res);
+
+    return res;
   }
 }
 
-export default new UserController();
+export default new PersonController();
