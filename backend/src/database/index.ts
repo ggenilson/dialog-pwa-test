@@ -1,3 +1,1 @@
-export { connection as connectionDB } from './connection';
-
-export { default as User } from './entities/User';
+export { default as Person } from './entities/Person';
