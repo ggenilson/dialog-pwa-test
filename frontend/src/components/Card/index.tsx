@@ -12,7 +12,7 @@ const Card: React.FC<PersonType> = ({
     picture,
 }) => {
     return (
-        <S.CardWrapper href="#">
+        <S.CardWrapper>
             <S.CardImage src={picture} alt="user-img-thumb" />
             <S.CardOverlay className="card__overlay">
                 <S.CardHeader className="card__header">

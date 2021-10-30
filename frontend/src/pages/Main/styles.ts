@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+`;
 
 export const Cards = styled.ul`
     display: grid;
@@ -18,6 +21,26 @@ export const Form = styled.form`
     border-radius: 0.7rem;
 `;
 
-export const searchTermInput = styled.input``;
+export const SearchTermInput = styled.div`
+    display: flex;
+    align-items: center;
+    margin: 4rem 5vw;
 
-export const SearchButton = styled.button``;
+    strong {
+        font-size: 20px;
+        margin-right: 20px;
+    }
+`;
+
+export const SearchInput = styled.input`
+    width: 150px;
+    border-radius: 7px;
+    border: 1px solid #ccc;
+    transition: all 0.5s ease;
+
+    &:focus {
+        outline: none;
+        width: 400px;
+        border: 1px solid #000;
+    }
+`;

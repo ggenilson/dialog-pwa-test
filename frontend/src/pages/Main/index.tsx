@@ -18,6 +18,11 @@ const Main: FC = () => {
     }, []);
     return (
         <S.Wrapper>
+            <S.SearchTermInput>
+                <strong>MySocial</strong>
+
+                <S.SearchInput placeholder="search persons ..." />
+            </S.SearchTermInput>
             <S.Cards>
                 {persons?.map((person: PersonType, index: number) => (
                     <li key={index}>

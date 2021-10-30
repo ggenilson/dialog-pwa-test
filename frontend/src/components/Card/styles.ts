@@ -7,6 +7,7 @@ export const CardWrapper = styled.a`
     border-radius: calc(40 * 1px);
     overflow: hidden;
     text-decoration: none;
+    cursor: pointer;
 
     :hover {
         .card__overlay,
