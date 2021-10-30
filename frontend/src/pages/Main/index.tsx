@@ -4,10 +4,13 @@ import * as S from './styles';
 import Card from '../../components/Card';
 import { PersonType } from './types';
 
-import { getPersons } from './utils';
+import { getPersons, searchPerson } from './utils';
+import Friends from 'src/components/Card/Friends';
 
 const Main: FC = () => {
     const [persons, setPersons] = useState([]);
+    const [search, setSearch] = useState('');
+    const [index, setIndex] = useState(-1);
 
     useEffect(() => {
         (async () => {
@@ -16,20 +19,41 @@ const Main: FC = () => {
             setPersons(allPersons);
         })();
     }, []);
+
+    async function handleSearch(value: string) {
+        const filteredPersons = await searchPerson(value);
+
+        setPersons(filteredPersons);
+    }
+
     return (
         <S.Wrapper>
             <S.SearchTermInput>
                 <strong>MySocial</strong>
 
-                <S.SearchInput placeholder="search persons ..." />
+                <S.SearchInput
+                    placeholder="search persons ..."
+                    value={search}
+                    onChange={e => setSearch(e.target.value)}
+                    onBlur={() => handleSearch(search)}
+                />
+
+                {index > -1 && (
+                    <S.Button onClick={() => setIndex(-1)}>Back</S.Button>
+                )}
             </S.SearchTermInput>
-            <S.Cards>
-                {persons?.map((person: PersonType, index: number) => (
-                    <li key={index}>
-                        <Card {...person} />
-                    </li>
-                ))}
-            </S.Cards>
+
+            {index === -1 ? (
+                <S.Cards>
+                    {persons?.map((person: PersonType) => (
+                        <li key={person.index}>
+                            <Card person={person} getIndex={e => setIndex(e)} />
+                        </li>
+                    ))}
+                </S.Cards>
+            ) : (
+                <Friends {...persons[index]} />
+            )}
         </S.Wrapper>
     );
 };

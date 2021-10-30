@@ -105,7 +105,13 @@ export const UserData = styled.ul``;
 
 export const ListItem = styled.li`
     margin-bottom: 6px;
+    list-style: none;
     span {
         font-weight: bold;
     }
+`;
+
+export const FriendsContainer = styled.div`
+    display: flex;
+    flex-direction: column;
 `;

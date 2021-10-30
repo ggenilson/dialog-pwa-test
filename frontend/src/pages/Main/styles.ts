@@ -44,3 +44,44 @@ export const SearchInput = styled.input`
         border: 1px solid #000;
     }
 `;
+
+export const PersonContainer = styled.div`
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    border-radius: 5px;
+    margin-left: 70px;
+    box-shadow: 0 0 1px #000;
+    background-color: #ccc;
+
+    img {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        align-self: center;
+        margin-bottom: 20px;
+    }
+`;
+
+export const TextFriends = styled.h2`
+    margin-left: 70px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+`;
+
+export const Button = styled.button`
+    width: 150px;
+    height: 50px;
+    border: 1px solid #ccc;
+    background-color: #ccc;
+    color: #000;
+    border-radius: 7px;
+    cursor: pointer;
+    margin-left: 40px;
+    transition: all 0.5s ease;
+
+    &:hover {
+        transform: scale(1.1);
+    }
+`;

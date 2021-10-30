@@ -1,18 +1,20 @@
 import React from 'react';
+
 import { PersonType } from 'src/pages/Main/types';
 
 import * as S from './styles';
 
-const Card: React.FC<PersonType> = ({
-    name,
-    age,
-    eyeColor,
-    company,
-    email,
-    picture,
+type CardType = {
+    person: PersonType;
+    getIndex?: (value: number) => void;
+};
+
+const Card: React.FC<CardType> = ({
+    person: { index, name, age, eyeColor, company, email, picture },
+    getIndex = () => {},
 }) => {
     return (
-        <S.CardWrapper>
+        <S.CardWrapper onClick={() => getIndex(index)}>
             <S.CardImage src={picture} alt="user-img-thumb" />
             <S.CardOverlay className="card__overlay">
                 <S.CardHeader className="card__header">
