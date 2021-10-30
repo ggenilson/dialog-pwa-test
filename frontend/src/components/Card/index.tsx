@@ -1,27 +1,25 @@
 import React from 'react';
-import { IUserProps } from 'src/pages/Main/types';
+import { PersonType } from 'src/pages/Main/types';
 
 import * as S from './styles';
 
-const Card: React.FC<IUserProps> = ({
+const Card: React.FC<PersonType> = ({
     name,
     age,
     eyeColor,
     company,
     email,
+    picture,
 }) => {
     return (
         <S.CardWrapper href="#">
-            <S.CardImage
-                src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlcnxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80"
-                alt=""
-            />
+            <S.CardImage src={picture} alt="user-img-thumb" />
             <S.CardOverlay className="card__overlay">
                 <S.CardHeader className="card__header">
                     <S.CardArc xmlns="http://www.w3.org/2000/svg">
                         <path />
                     </S.CardArc>
-                    <S.CardThumb src="https://i.imgur.com/7D7I6dI.png" alt="" />
+                    <S.CardThumb src={picture} alt="person-img-thumb" />
                     <S.CardTitle>{name}</S.CardTitle>
                 </S.CardHeader>
                 <S.CardDescription>

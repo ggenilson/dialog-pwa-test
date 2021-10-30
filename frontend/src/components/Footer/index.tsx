@@ -5,9 +5,11 @@ import * as S from './styles';
 const Footer: React.FC = () => {
     return (
         <S.Container>
-            <p>Author: José Gonçalves</p>
+            <p>Author: Genilson Araújo</p>
             <p>
-                <a href="mailto:hege@example.com">goncalves2541@gmail.com</a>
+                <a href="mailto:hege@example.com">
+                    genilsonaraujo20002002@gmail.com
+                </a>
             </p>
         </S.Container>
     );
